@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { View, Text } from 'react-native';
 import Match from './Match';
 //
 
@@ -18,16 +18,17 @@ class MatchList extends Component {
 
     renderMatches() {
         return this.state.matches.map(match => 
-        <Match />
+         <Match key={match.id} match={match} />
         );
     }
     render() {
         console.log(this.state);
         return (
-            <View>
-                {this.renderMatches()};
-            </View>
-
+         <View>
+              {this.renderMatches()}
+             
+          </View>
+                     
             
         );
     }
