@@ -13,9 +13,9 @@ const styles = {
   containerStyle: {
     borderWidth: 1,
     borderRadius: 2,
-    borderColor: 'green',
+    borderColor: 'grey',
     borderBottomWidth: 0,
-    shadowColor: 'red',
+    shadowColor: 'grey',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
     shadowRadius: 2,
@@ -26,4 +26,4 @@ const styles = {
   }
 };
 
-export default Card;
+export { Card };

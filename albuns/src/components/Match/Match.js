@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
-import { Text, View } from 'react-native';
-import Card from '../common/Card';
-import CardSection from '../common/CardSection';
+import { Text, View, Linking} from 'react-native';
+
+import { CardSection, Card, Button } from '../common/';
+
+
+
 import Team from '../Team';
 import axios from 'axios';
 
@@ -16,6 +19,8 @@ class Match extends Component {
     }
     
     componentWillMount() {
+
+        this.setState({ away: [] });
 
         const awayUrl = 'http://localhost:3000/teams/' + this.props.match.away_team;
         const homeUrl = 'http://localhost:3000/teams/' + this.props.match.home_team;
@@ -36,12 +41,12 @@ class Match extends Component {
         axios.get(homeUrl)
           .then(response => {
             console.log("Dentro do home");
+            console.log(response.data);
             this.setState({ home: response.data });
             console.log(this.state.home);
             console.log("Dentro do home");
           });
-    
-        console.log("Time Away");
+      
     
       }
       render() {
@@ -58,6 +63,10 @@ class Match extends Component {
                     <View><Team team={ this.state.home } /></View>
                     <View><Team team={ this.state.away }/></View>
                 </View>
+            </CardSection>
+            <CardSection>
+
+            <Button onPress={() => Linking.openURL('http://www.uol.com.br')}>Estatisticas </Button>
             </CardSection>
         </Card>
     );

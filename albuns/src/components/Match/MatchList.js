@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, ScrollView } from 'react-native';
 import Match from './Match';
 //
 
@@ -17,6 +17,7 @@ class MatchList extends Component {
     }
 
     renderMatches() {
+        
         return this.state.matches.map(match => 
          <Match key={match.id} match={match} />
         );
@@ -24,10 +25,9 @@ class MatchList extends Component {
     render() {
         console.log(this.state);
         return (
-         <View>
+         <ScrollView>
               {this.renderMatches()}
-             
-          </View>
+          </ScrollView>
                      
             
         );
